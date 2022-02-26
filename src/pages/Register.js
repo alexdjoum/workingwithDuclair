@@ -4,13 +4,14 @@ import { register } from "../actions/auth"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom"
+import Select from 'react-select'
 
 export default function Register() {
     let navigate = useNavigate();
     const [username, setUserName] = useState('');
-    const [sex, setSex] = useState('');
+    const [gender, setGender] = useState('');
     const [status, setStatus] = useState('');
-    const [phonenumber, setPhoneNumber] = useState();
+    const [phoneNumber, setPhoneNumber] = useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,21 +23,33 @@ export default function Register() {
         // console.table({ name, email, password });
         try {
             console.log('REGISTER USER ====> ', username);
-            let user = new FormData();
-            user.append('username', username);
-            user.append('sex', sex);
-            user.append('status', status);
-            user.append('phonenumber', phonenumber);
-            user.append('email', email);
-            user.append('password', password)
-            console.log('user =====>.>>>>', ...user)
+            // let user = new FormData();
+            // user.append('username', username);
+            // user.append('sex', sex);
+            // user.append('status', status);
+            // user.append('phonenumber', phonenumber);
+            // user.append('email', email);
+            // user.append('password', password)
+			const user = {
+				username: username,
+				// gender: gender,
+				// status: status,
+				phoneNumber: phoneNumber,
+				email: email,
+				password: password
+			}
+            console.log('user =====>.>>>>', user)
+			register(user)
             const res = await register(user);
             console.log('res ======= ', res)
+			
             toast.success('Alex Djoum Register successfull, please login');
-            navigate("/login")
+            navigate("/")
         } catch (err) {
-            console.log(err);
-            if (err.response.status === 400) toast.error("erooooooooooooororororor");
+            console.log('hjkhhjgklhkjjkhgjgffhgj');
+			
+            //if (err.response.status === 400) 
+			toast.error("erooooooooooooororororor");
 
         }
     }
@@ -117,8 +130,8 @@ export default function Register() {
 				<div className="row">
 					<div className="col-lg-6 offset-lg-3 col-12">
 						<div className="section-title bg">
-							<h2>Contact <span>Us</span></h2>
-							<p>Able an hope of body. Any nay shyness article matters own removal nothing his forming. Gay own additions education satisfied the perpetual. If he cause manor happy</p>
+							<h2>Create an account</h2>
+							{/* <p>orming. Gay own additions education satisfied the perpetual. If he cause manor happy</p> */}
 							<div className="icon"><i className="fa fa-paper-plane"></i></div>
 						</div>
 					</div>
@@ -145,10 +158,10 @@ export default function Register() {
 										<div className="form-group">
 											<i className="fa fa-envelope"></i>
 											<input 
-                                                name="phonenumber" 
+                                                name="phoneNumber" 
                                                 type="number" 
                                                 placeholder="Phone number"
-                                                value={phonenumber}
+                                                value={phoneNumber}
                                                 onChange={(e) => setPhoneNumber(e.target.value)} />
 										</div>
 									</div>
@@ -167,26 +180,40 @@ export default function Register() {
 										<div className="form-group">
 											<i className="fa fa-envelope"></i>
 											<input 
-                                                name="status" 
-                                                type="text" 
-                                                placeholder="Status"
-                                                value={status}
-                                                onChange={(e) => setStatus(e.target.value)}
-                                            />
+                                                name="password" 
+                                                type="password" 
+                                                placeholder="Enter password"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)} />
 										</div>
 									</div>
-                                    <div className="col-lg-6 col-md-6 col-12">
+									<div className="col-lg-6 col-md-6 col-12">
+										{/* <div className="form-group">
+											
+											<select
+												name="status"
+												value={status}
+												onChange={(e) => setStatus(e.target.value)}
+											>
+												<option value="">Select status</option>
+												<option value="single">Single</option>
+												<option value="maried">Maried</option>
+											</select>
+										
+										</div> */}
+									</div>
+                                    {/* <div className="col-lg-6 col-md-6 col-12">
 										<div className="form-group">
 											<i className="fa fa-envelope"></i>
 											<input 
-                                                name="sex" 
+                                                name="gender" 
                                                 type="text" 
                                                 placeholder="Sex"
-                                                value={sex}
-                                                onChange={(e) => setSex(e.target.value)}
+                                                value={gender}
+                                                onChange={(e) => setGender(e.target.value)}
                                             />
 										</div>
-									</div>
+									</div> */}
 									{/* <div className="col-12">
 										<div className="form-group message">
 											<i className="fa fa-pencil"></i>
@@ -196,7 +223,7 @@ export default function Register() {
 									<div className="col-12">
 										<div className="form-group">
 											<div className="button">
-												<button type="submit" className="btn primary">Send Message</button>
+												<button type="submit" className="btn primary">Register</button>
 											</div>
 										</div>
 									</div>

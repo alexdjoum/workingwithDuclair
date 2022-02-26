@@ -1,19 +1,64 @@
 import React, {useState} from "react"
+import { login } from "../actions/auth"
+import { useNavigate } from "react-router-dom"
+import { setAuthentication, isAuthenticated } from "../helpers/auth"
 import { Link } from "react-router-dom"
 import './Home.css'
+import { toast } from "react-toastify"
 
 export default function Home() {
 	
-	const [phonenumber, setPhoneNumber] = useState("");
-    const [password, setPassword] = useState("");
+	let navigate = useNavigate();
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+		
+	// }
+	const validateForm = () => {
+		return username.length > 0 && password.length > 0
+	}
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-		
-	}
-	const validateForm = () => {
-		return phonenumber.length > 0 && password.length > 0
-	}
+        e.preventDefault();
+        try {
+            console.log('REGISTER USER ====> ', username);
+			const user = {
+				username: username,
+				password: password
+				// gender: gender,
+				// status: status,
+				//phoneNumber: phoneNumber,
+				//email: email,
+			}
+            console.log('user =====>.>>>>', user)
+			login(user)
+				.then(response => {
+					console.log('demoooooooooooooo ----', response.data)
+					setAuthentication(response.data.token, response.data.user);
+				
+			if (isAuthenticated()) {
+				navigate('/events')
+			}
+			})
+			.catch(err => {
+				console.log("Signin api function ", err)
+			})
+           // const res = await register(user);
+           // console.log('res ======= ', res)
+			
+            toast.success('Alex Djoum Register successfull, please login');
+            navigate("/")
+        } catch (err) {
+            console.log('hjkhhjgklhkjjkhgjgffhgj');
+			
+            //if (err.response.status === 400) 
+			toast.error("erooooooooooooororororor");
+
+        }
+    }
+
     return (
         <>
             <header className="header">
@@ -118,7 +163,7 @@ export default function Home() {
 								<div className="col-lg-6 col-md-6 col-12">
 										<div className="form-group">
 											<i className="fa fa-phone"></i>
-											<input name="phone" type="number" placeholder="Phone Number" onChange={e => setPhoneNumber(e.target.value)}/>
+											<input name="phone" type="text" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
 										</div>
 									</div>
 									<div className="col-lg-6 col-md-6 col-12">
