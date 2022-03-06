@@ -1,9 +1,21 @@
+/* =====================================
+Template Name: Eduland
+Author Name: ThemeLamp
+Author URI: http://themelamp.com/
+Release By: http://codeglim.com/
+Description: Eduland is a awesome Education & Courses Template.
+Version:	1.0
+========================================*/
+
+/*===============================
+	Header CSS 
+=================================*/
 .header {
   background-color: #fff;
 }
 /* Header Inner */
 .header .header-inner {
-  background-image: 'url(' + '/images/bg-pattern1.png' + ')';
+  background-image: url('images/bg-pattern1.png');
   background-repeat: repeat-y;
   background-position: center;
   position: relative;
@@ -243,7 +255,13 @@
 .header .search-form button:hover {
   opacity: 0.8;
 }
+/*===============================
+	End Header CSS 
+=================================*/
 
+/*===============================
+	Slider CSS 
+=================================*/
 .home-slider {
   overflow: hidden;
 }
@@ -363,7 +381,13 @@
 .home-slider .owl-item.active .button {
   animation: fadeInUp 1s both 1.5s;
 }
+/*===============================
+	End Slider CSS 
+=================================*/
 
+/*===============================
+	Courses CSS
+=================================*/
 .courses {
   background: #f8f8f8;
 }
@@ -502,10 +526,9 @@
   right: 0;
 }
 .courses .price::before {
-  position: ;
   position: absolute;
   left: 0;
-  top: -;
+  top: -1;
   content: '';
   border-left: 15px solid #fff;
   border-bottom: 15px solid transparent;
@@ -606,9 +629,15 @@
 .courses.archive .single-course {
   margin: 30px 0 0;
 }
+/*===============================
+	End Courses CSS
+=================================*/
 
+/*===============================
+	Features CSS 
+=================================*/
 .features {
-  /* background-image: url('images/feature-bg.jpg'); */
+  background-image: url('images/feature-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -678,9 +707,15 @@
   line-height: 22px;
   color: #ccc;
 }
+/*===============================
+	End Features CSS 
+=================================*/
 
+/*===============================
+	Register Today CSS
+=================================*/
 .register-today {
-  /* background-image: url('images/register-bg.jpg'); */
+  background-image: url('images/register-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -931,7 +966,13 @@
   display: block;
   color: #fff;
 }
+/*===============================
+	End Register Today CSS
+=================================*/
 
+/*===============================
+	Teachers CSS 
+=================================*/
 .teachers {
   background: #fff;
 }
@@ -1081,7 +1122,13 @@
 .teachers.archive .single-teacher .social {
   transform: translateY(0%);
 }
+/*===============================
+	End Teachers CSS 
+=================================*/
 
+/*===============================
+	Events CSS 
+=================================*/
 .events {
   background: #f8f8f8;
 }
@@ -1181,7 +1228,13 @@
 .events.archive .event-content {
   margin-top: 20px;
 }
+/*===============================
+	End Events CSS 
+=================================*/
 
+/*===============================
+	Call to Action CSS 
+=================================*/
 .cta {
   padding-top: 62px;
   background: #f8f8f8;
@@ -1225,7 +1278,13 @@
   right: 0;
   top: -152px;
 }
+/*===============================
+	End Call to Action CSS 
+=================================*/
 
+/*===============================
+	Latest News CSS 
+=================================*/
 .latest-news {
   background: #fff;
 }
@@ -1339,7 +1398,13 @@
 .latest-news.archive .single-news {
   margin: 30px 0 0;
 }
+/*===============================
+	End Latest News CSS 
+=================================*/
 
+/*=============================
+	News Sidebar CSS
+===============================*/
 .main-sidebar {
   margin-top: 30px;
 }
@@ -1517,7 +1582,7 @@
 }
 /* Subscribe */
 .main-sidebar .subscribe {
-  /* background-image: url('images/feature1.jpg'); */
+  background-image: url('images/feature1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   padding: 30px;
@@ -1599,7 +1664,13 @@
 .main-sidebar.archive.section .single-news {
   padding: 15px;
 }
+/*=============================
+	End News Sidebar CSS
+===============================*/
 
+/*=============================
+	Faqs CSS
+===============================*/
 .faqs {
   background: #f8f8f8;
 }
@@ -1673,7 +1744,13 @@
   line-height: 24px;
   background: #fff;
 }
+/*=============================
+	End Faqs CSS
+===============================*/
 
+/*=============================
+	Contact CSS
+===============================*/
 .contact .contact-bottom {
   margin-top: 30px;
 }
@@ -1771,7 +1848,13 @@
 }
 .contact .contact-info p span {
 }
+/*=============================
+	End Contact CSS
+===============================*/
 
+/*=============================
+	Clinets Slider CSS
+===============================*/
 .clients {
   padding: 35px 0;
 }
@@ -1804,7 +1887,13 @@
   -moz-transform: scale(0.9);
   transform: scale(0.9);
 }
+/*=============================
+	End Clinets Slider CSS
+===============================*/
 
+/*======================================
+	Others CSS
+========================================*/
 #scrollUp {
   right: 20px;
   width: 50px;
@@ -1875,3 +1964,166 @@
 .breadcrumbs ul li i {
   margin-left: 5px;
 }
+/*======================================
+	End Others CSS
+========================================*/
+
+/*=============================
+	Footer CSS
+===============================*/
+.footer {
+  background: #20232e;
+  padding: 0;
+}
+.footer .footer-top {
+  padding: 60px 0 90px;
+  background-image: url('images/clients-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.footer .footer-top:before {
+  opacity: 0.9;
+}
+.footer a,
+.footer p {
+  font-weight: 400;
+  color: #ccc;
+  line-height: 22px;
+}
+.footer .single-widget {
+  margin-top: 30px;
+}
+.footer .single-widget h2 {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #fff;
+  position: relative;
+}
+.footer .about p {
+  margin-top: 20px;
+}
+/* List */
+.footer .list li {
+  line-height: 35px;
+  color: #ccc;
+}
+.footer .list li a {
+  color: #ccc;
+}
+.footer .list li i {
+  margin-right: 15px;
+}
+/* Social */
+.footer .social {
+  margin-top: 20px;
+}
+.footer .social li {
+  display: inline-block;
+  margin-right: 5px;
+}
+.footer .social li:last-child {
+  margin: 0;
+}
+.footer .social li a {
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  font-size: 13px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.footer .social li:hover a,
+.footer .social li.active a {
+  color: #fff;
+}
+/* Opening Times */
+.footer .opening-times .list li {
+  position: relative;
+  line-height: 35px;
+  color: #ccc;
+}
+.footer .opening-times .list li a {
+  color: #ccc;
+  font-size: 15px;
+}
+.footer .opening-times .list li i {
+  margin-right: 10px;
+}
+.footer .opening-times .list li .value {
+  float: right;
+}
+.footer .opening-times .list li .value.off {
+  color: #fff;
+  border-radius: 30px;
+  padding: 0 11px;
+  line-height: 30px;
+}
+/* Newsletter Widget */
+.footer .newsletter .title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+}
+.footer .newsletter .form {
+  position: relative;
+  margin-top: 20px;
+}
+.footer .newsletter .form input {
+  width: 100%;
+  line-height: 50px;
+  color: #888;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+  padding: 0px 50px 0px 20px;
+  border-radius: 0px;
+  background: #fff;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.footer .newsletter .button {
+  height: 45px;
+  color: #fff;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+  font-size: 14px;
+  padding: 10px 35px;
+  border-radius: 0px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 2px solid transparent;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.footer .newsletter .button:hover {
+  opacity: 0.8;
+}
+.footer .newsletter .button i {
+  margin-right: 5px;
+}
+.footer-bottom {
+  background: #121212;
+  padding: 20px 0;
+}
+.footer .copyright {
+  text-align: center;
+}
+.footer .copyright p {
+  color: #aaa;
+}
+.footer .copyright a:hover {
+  color: #fff;
+}
+/*=============================
+	End Footer CSS
+===============================*/
