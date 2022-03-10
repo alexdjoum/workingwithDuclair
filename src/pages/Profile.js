@@ -1,17 +1,54 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import './Profile.css'
+import { toast } from 'react-toastify'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import { createPost } from '../actions/createPost'
+import BreadCrumb from '../components/BreadCrumb'
 
 function Profile() {
   const [user, setUser] = useState({})
+  const [selectedFile, setSelectedFile] = useState()
+  const [isFilePicked, setIsFilePicked] = useState(false)
 
+  // const changeHandler = (e) => {
+  //   setSelectedFile(e.target.files[0]);
+  //   setIsSelected(true)
+  // }
+
+  let navigate = useNavigate()
+  const [desc, setDesc] = useState('')
+
+  //const userID = JSON.parse(localStorage.getItem('user'))._id
   const userID = JSON.parse(localStorage.getItem('user'))._id
 
   console.log('UserID========', userID)
+
+  const handleSubmit = async (e) => {
+    //toast.success('Alex Djoum Register successfull, please login');
+    e.preventDefault()
+    // console.table({ name, email, password });
+    try {
+      const post = {
+        desc: desc,
+      }
+      console.log('post =====>.>>>>', post)
+      //post(post)
+      const res = await createPost(post, userID)
+      console.log('res ======= ', res)
+
+      toast.success(`${desc} posted successfull`)
+      navigate('/')
+    } catch (err) {
+      console.log('errooooooeeeeeeeeeeeer')
+
+      //if (err.response.status === 400)
+      toast.error('All fields are required')
+    }
+  }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,35 +67,7 @@ function Profile() {
       {/* <!--/ End Header --> */}
 
       {/* <!-- Breadcrumb --> */}
-      <div
-        className='breadcrumbs overlay'
-        style={{ backgroundImage: 'url(' + 'images/breadcrumb-bg.jpg' + ')' }}
-      >
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <h2>Our Teachers</h2>
-            </div>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <ul className='bread-list'>
-                <li>
-                  <Link to='/'>
-                    Home<i className='fa fa-angle-right'></i>
-                  </Link>
-                </li>
-                <li>
-                  <a href='#'>
-                    Pages<i className='fa fa-angle-right'></i>
-                  </a>
-                </li>
-                <li className='active'>
-                  <Link to='about.html'>About</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BreadCrumb />
       {/* <!--/ End Breadcrumb -->
 
 		<!-- Teachers --> */}
@@ -66,18 +75,34 @@ function Profile() {
         <div className='container'>
           <div
             className='img'
-            style={{
-              backgroundImage:
-                'linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%, rgba(63, 174, 255, .3)94%), url(https://bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)',
-              height: '350px',
-              backgroundSize: 'cover',
-            }}
+            style={
+              user.coverPicture
+                ? {
+                    backgroundImage: `linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%, rgba(63, 174, 255, .3)94%), url( "images2/person/noCover.png" )`,
+                    height: '350px',
+                    backgroundSize: 'cover',
+                  }
+                : {
+                    backgroundImage: `linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%, rgba(63, 174, 255, .3)94%), url( "images2/person/noCover.png" )`,
+                    height: '350px',
+                    backgroundSize: 'cover',
+                  }
+            }
           ></div>
           <div className='card social-prof'>
             <div className='card-body'>
-              <div className='wrapper'>
+              <div
+                className='wrapper'
+                type='file'
+                name='file'
+                //onChange={changeHandler}
+              >
                 <img
-                  src='https://bootdey.com/img/Content/avatar/avatar6.png'
+                  src={
+                    user.profilePicture
+                      ? 'images2/person/10.png'
+                      : 'images2/person/noAvatar.png'
+                  }
                   alt=''
                   className='user-profile'
                 />
@@ -271,6 +296,8 @@ function Profile() {
                         <textarea
                           className='form-control'
                           id='message'
+                          value={desc}
+                          onChange={(e) => setDesc(e.target.value)}
                           rows='3'
                           placeholder='What are you thinking?'
                         ></textarea>
@@ -299,7 +326,11 @@ function Profile() {
                   </div>
                   <div className='btn-toolbar justify-content-between'>
                     <div className='btn-group'>
-                      <button type='submit' className='btn btn-theme-primary'>
+                      <button
+                        type='submit'
+                        onClick={handleSubmit}
+                        className='btn btn-theme-primary'
+                      >
                         share
                       </button>
                     </div>

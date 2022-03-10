@@ -2,29 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { students } from './students'
-import Student from './Student'
-import UseStateBasics from './UseStateBasics'
-import UseStateArray from './UseStateArray'
-import UseStateCounter from './UseStateCounter'
-
-const StudentList = () => {
-  return (
-    <React.Fragment>
-      {/* {students.map((student, index) => {
-        return <Student key={index} {...student} />
-      })} */}
-      {/* <UseStateBasics /> */}
-      {/* <UseStateArray /> */}
-      <UseStateCounter />
-    </React.Fragment>
-  )
-}
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     {/* <StudentList /> */}
+    {/* <UseEffectBasics /> */}
   </React.StrictMode>,
   document.getElementById('root')
 )

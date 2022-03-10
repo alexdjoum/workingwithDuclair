@@ -79,19 +79,27 @@ export default function Home() {
                   {/* <!-- Slider Content --> */}
                   <div className='slider-content'>
                     <h1 className='slider-title'>
-                      <span>The Best University in the World!</span>E-Campus
-                      online <b>University</b>
+                      <span>
+                        A Geeks Zone For The Geeks By The Geeks To The Geeks
+                      </span>
+                      &lt;TheGeeks /&gt;
                     </h1>
                     <p className='slider-text'>
-                      Mirum est notare quam littera gothica, quam nunc putamus
-                      parum claram, anteposuerit litterarum formas humanitatis
-                      per seacula There are many variations of passages of Lorem
-                      Ipsum available, but the majority
+                      We welcome you to the platform where we consistently
+                      strive to offer the best of education.
+                      <br />
+                      <br /> This platform has been designed for every geek
+                      wishing to expand and share their knowledge. We have
+                      articles, online courses, thousands of tutorials and much
+                      more just for the geek inside you.
+                      <br />
+                      <br />
+                      Thank you for choosing and supporting us! ~ Demo FKD
                     </p>
                     {/* <!-- Button --> */}
                     <div className='button'>
                       <Link to='about.html' className='btn white'>
-                        About E-Campus
+                        About TheGeeks
                       </Link>
                       <Link to='courses.html' className='btn white primary'>
                         Our Courses

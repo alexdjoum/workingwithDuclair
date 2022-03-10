@@ -68,6 +68,11 @@ const Header = () => {
                           </Link>
                         </li>
                         {/* <li>
+                          <Link to='/profile/:username'>
+                            <i className='fa fa-bullhorn'></i>Profile
+                          </Link>
+                        </li> */}
+                        {/* <li>
                           <Link to='/contact'>
                             <i className='fa fa-address-book'></i>Contact
                           </Link>

@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom'
 import Select from 'react-select'
 import Header from '../components/Header'
 import './Home.css'
+import BreadCrumb from '../components/BreadCrumb'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 export default function Register() {
   let navigate = useNavigate()
@@ -61,30 +64,7 @@ export default function Register() {
       {/* <!--/ End Header -->
 
 		<!-- Breadcrumb --> */}
-      <div
-        className='breadcrumbs overlay'
-        style={{ backgroundImage: 'url(' + 'images/breadcrumb-bg.jpg' + ')' }}
-      >
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <h2>Contact us</h2>
-            </div>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <ul className='bread-list'>
-                <li>
-                  <Link to='/'>
-                    Home<i className='fa fa-angle-right'></i>
-                  </Link>
-                </li>
-                <li className='active'>
-                  <Link to='/contact'>contact</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BreadCrumb />
       {/* <!--/ End Breadcrumb -->
 
 		<!-- Contact Us --> */}
@@ -113,7 +93,7 @@ export default function Register() {
                         <input
                           name='username'
                           type='text'
-                          placeholder='User name'
+                          placeholder='Username'
                           value={username}
                           onChange={(e) => setUserName(e.target.value)}
                         />
@@ -121,13 +101,21 @@ export default function Register() {
                     </div>
                     <div className='col-lg-6 col-md-6 col-12'>
                       <div className='form-group'>
-                        <i className='fa fa-envelope'></i>
-                        <input
+                        {/* <i className='fa fa-envelope'></i> */}
+                        {/* <input
                           name='phoneNumber'
                           type='number'
                           placeholder='Phone number'
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
+                        /> */}
+                        <PhoneInput
+                          name='phoneNumber'
+                          country={'cm'}
+                          value={phoneNumber}
+                          onChange={(phoneNumber) =>
+                            setPhoneNumber(phoneNumber)
+                          }
                         />
                       </div>
                     </div>
@@ -145,7 +133,7 @@ export default function Register() {
                     </div>
                     <div className='col-lg-6 col-md-6 col-12'>
                       <div className='form-group'>
-                        <i className='fa fa-envelope'></i>
+                        <i className='fa fa-lock'></i>
                         <input
                           name='password'
                           type='password'
@@ -205,16 +193,7 @@ export default function Register() {
             <div className='col-lg-4 col-md-4 col-12'>
               <div className='contact-right'>
                 {/* <!-- Contact-Info --> */}
-                <div className='contact-info'>
-                  <div className='icon'>
-                    <i className='fa fa-map'></i>
-                  </div>
-                  <h3>Our Collage Location</h3>
-                  <p>
-                    60 Grant ave. Central New Road 0708, United states of
-                    America
-                  </p>
-                </div>
+
                 {/* <!-- Contact-Info --> */}
                 <div className='contact-info'>
                   <div className='icon'>

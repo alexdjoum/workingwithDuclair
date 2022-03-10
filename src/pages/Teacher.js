@@ -50,13 +50,13 @@ function Teacher() {
             <div className='col-lg-6 offset-lg-3 col-12'>
               <div className='section-title bg'>
                 <h2>
-                  Our <span>Advisors</span>
+                  Our <span>Instructors</span>
                 </h2>
-                <p>
+                {/* <p>
                   Able an hope of body. Any nay shyness article matters own
                   removal nothing his forming. Gay own additions education
                   satisfied the perpetual. If he cause manor happy
-                </p>
+                </p> */}
                 <div className='icon'>
                   <i className='fa fa-users'></i>
                 </div>
@@ -68,7 +68,11 @@ function Teacher() {
               {/* <!-- Single Teacher --> */}
               <div className='single-teacher'>
                 <div className='teacher-head overlay'>
-                  <img src='images/teachers/teacher-1.jpg' alt='#' />
+                  <img
+                    src='images/teachers/demo.jpeg'
+                    alt='#'
+                    style={{ width: '250px', height: '360px' }}
+                  />
                   <ul className='social'>
                     <li>
                       <a href='#'>
@@ -94,7 +98,7 @@ function Teacher() {
                 </div>
                 <div className='teacher-content'>
                   <h4>
-                    Rohan Jonson<span>Web Developer</span>
+                    Fopa K. Duclair<span>Web Developer</span>
                   </h4>
                 </div>
               </div>
@@ -104,7 +108,11 @@ function Teacher() {
               {/* <!-- Single Teacher --> */}
               <div className='single-teacher'>
                 <div className='teacher-head overlay'>
-                  <img src='images/teachers/teacher-2.jpg' alt='#' />
+                  <img
+                    src='images/teachers/koffee.gif'
+                    alt='#'
+                    style={{ width: '360px', height: '360px' }}
+                  />
                   <ul className='social'>
                     <li>
                       <a href='#'>
@@ -130,7 +138,7 @@ function Teacher() {
                 </div>
                 <div className='teacher-content'>
                   <h4>
-                    Katheing William<span>Software Developer</span>
+                    Koffee<span>Jamaican Singer</span>
                   </h4>
                 </div>
               </div>
@@ -140,7 +148,11 @@ function Teacher() {
               {/* <!-- Single Teacher --> */}
               <div className='single-teacher'>
                 <div className='teacher-head overlay'>
-                  <img src='images/teachers/teacher-3.jpg' alt='#' />
+                  <img
+                    src='images/teachers/tems.png'
+                    alt='#'
+                    style={{ width: '320px', height: '360px' }}
+                  />
                   <ul className='social'>
                     <li>
                       <a href='#'>
@@ -166,7 +178,7 @@ function Teacher() {
                 </div>
                 <div className='teacher-content'>
                   <h4>
-                    William Holex<span>Civil Engineer</span>
+                    Tems<span>Nigerian Singer</span>
                   </h4>
                 </div>
               </div>

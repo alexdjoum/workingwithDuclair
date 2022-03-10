@@ -9,10 +9,13 @@ import Home from './pages/Home'
 import Teacher from './pages/Teacher'
 import Contact from './pages/Contact'
 import Events from './pages/Events'
+import Settings from './pages/Settings'
 import Profile from './pages/Profile'
+import Message from './pages/Message'
 import Register from './pages/Register'
 import { ToastContainer } from 'react-toastify'
 import UserRoute from './UserRoute'
+import Notifications from './pages/Notifications'
 
 function App() {
   return (
@@ -20,8 +23,19 @@ function App() {
       <ToastContainer position='top-center' />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route
+          path='/profile'
+          element={
+            <UserRoute>
+              <Profile />
+            </UserRoute>
+          }
+        />
+
         <Route path='/teacher' element={<Teacher />} />
+        <Route path='/message' element={<Message />} />
+        <Route path='/notifications' element={<Notifications />} />
+        <Route path='/settings' element={<Settings />} />
         {/* <Route path='/profile/:username' element={<Profile />} /> */}
         <Route
           path='/contact'

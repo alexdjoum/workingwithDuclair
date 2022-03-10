@@ -13,7 +13,7 @@ const Footer = () => {
               <div className='col-lg-4 col-md-6 col-12'>
                 {/* <!-- About --> */}
                 <div className='single-widget about'>
-                  <h2>About E-CAMPUS</h2>
+                  <h2>About TheGeeks</h2>
                   <ul className='list'>
                     <li>
                       <i className='fa fa-phone'></i>Phone: +123 456-7890{' '}
@@ -130,7 +130,7 @@ const Footer = () => {
               <div className='col-12'>
                 {/* <!-- Copyright --> */}
                 <div className='copyright'>
-                  <p>© Copyright E-CAMPUS 2022</p>
+                  <p>© Copyright TheGeeks 2022</p>
                 </div>
                 {/* <!--/ End Copyright --> */}
               </div>

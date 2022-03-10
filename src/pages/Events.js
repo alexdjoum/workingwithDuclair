@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BreadCrumb from '../components/BreadCrumb'
 import Header from '../components/Header'
 
 export default function Events() {
@@ -8,37 +9,7 @@ export default function Events() {
       <Header />
       {/* <!--/ End Header --> */}
 
-      {/* <!-- Breadcrumb --> */}
-      <div
-        className='breadcrumbs overlay'
-        style={{ backgroundImage: 'url(' + 'images/breadcrumb-bg.jpg' + ')' }}
-      >
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <h2>Upcoming Events</h2>
-            </div>
-            <div className='col-lg-6 col-md-6 col-12'>
-              <ul className='bread-list'>
-                <li>
-                  <a href='/'>
-                    Home<i className='fa fa-angle-right'></i>
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    Events<i className='fa fa-angle-right'></i>
-                  </a>
-                </li>
-                <li className='active'>
-                  <Link to='/events'>Events</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <!--/ End Breadcrumb --> */}
+      <BreadCrumb />
 
       {/* <!-- Events --> */}
       <section className='events archive section'>
