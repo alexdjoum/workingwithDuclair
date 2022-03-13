@@ -8,11 +8,15 @@ import { useParams } from 'react-router'
 import axios from 'axios'
 import { createPost } from '../actions/createPost'
 import BreadCrumb from '../components/BreadCrumb'
+import { getLocalStorage } from '../helpers/localStorage'
+import { getCookie } from '../helpers/cookies'
 
 function Profile() {
   const [user, setUser] = useState({})
-  const [selectedFile, setSelectedFile] = useState()
+  const token = getCookie('token')
+  const [selectedFile, setSelectedFile] = useState(null)
   const [isFilePicked, setIsFilePicked] = useState(false)
+  const [desc, setDesc] = useState('')
 
   // const changeHandler = (e) => {
   //   setSelectedFile(e.target.files[0]);
@@ -20,28 +24,40 @@ function Profile() {
   // }
 
   let navigate = useNavigate()
-  const [desc, setDesc] = useState('')
 
   //const userID = JSON.parse(localStorage.getItem('user'))._id
   const userID = JSON.parse(localStorage.getItem('user'))._id
 
   console.log('UserID========', userID)
 
+  // const handlePostImage = (event) => {
+  //   setPostData({
+  //     ...postData,
+  //     [event.target.name]: event.target.files[0],
+  //   })
+  // }
+
   const handleSubmit = async (e) => {
     //toast.success('Alex Djoum Register successfull, please login');
-    e.preventDefault()
-    // console.table({ name, email, password });
-    try {
-      const post = {
-        desc: desc,
-      }
-      console.log('post =====>.>>>>', post)
-      //post(post)
-      const res = await createPost(post, userID)
-      console.log('res ======= ', res)
 
-      toast.success(`${desc} posted successfull`)
-      navigate('/')
+    try {
+      e.preventDefault()
+      // console.table({ name, email, password });
+
+      if (desc || selectedFile) {
+        let formData = new FormData()
+        formData.append('desc', desc)
+        formData.append('image', selectedFile)
+        console.log('enter ============>>>>>>', ...formData)
+        const res = await createPost(formData, userID, token)
+        console.log('res ============>>>>>>', res.data)
+        // toast.success(`${desc} ${selectedFile} posted successfull`)
+        // setDesc('')
+        // setSelectedFile(null)
+        // navigate('/')
+      } else {
+        toast.error(`${desc} posted error`)
+      }
     } catch (err) {
       console.log('errooooooeeeeeeeeeeeer')
 
@@ -295,8 +311,8 @@ function Profile() {
                         </label>
                         <textarea
                           className='form-control'
-                          id='message'
                           value={desc}
+                          name='desc'
                           onChange={(e) => setDesc(e.target.value)}
                           rows='3'
                           placeholder='What are you thinking?'
@@ -313,8 +329,13 @@ function Profile() {
                         <div className='custom-file'>
                           <input
                             type='file'
+                            //name='selectedFile'
                             className='custom-file-input'
-                            id='customFile'
+                            // value={selectedFile}
+                            onChange={(e) => {
+                              console.log(e.target.files)
+                              setSelectedFile(e.target.files[0])
+                            }}
                           />
                           <label className='custom-file-label' for='customFile'>
                             Upload image

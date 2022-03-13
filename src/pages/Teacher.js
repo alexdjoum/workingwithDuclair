@@ -71,7 +71,7 @@ function Teacher() {
                   <img
                     src='images/teachers/demo.jpeg'
                     alt='#'
-                    style={{ width: '250px', height: '360px' }}
+                    style={{ width: '230px', height: '360px' }}
                   />
                   <ul className='social'>
                     <li>

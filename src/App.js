@@ -13,6 +13,7 @@ import Settings from './pages/Settings'
 import Profile from './pages/Profile'
 import Message from './pages/Message'
 import Register from './pages/Register'
+import Forum from './pages/Forum'
 import { ToastContainer } from 'react-toastify'
 import UserRoute from './UserRoute'
 import Notifications from './pages/Notifications'
@@ -34,6 +35,7 @@ function App() {
 
         <Route path='/teacher' element={<Teacher />} />
         <Route path='/message' element={<Message />} />
+        <Route path='/forum' element={<Forum />} />
         <Route path='/notifications' element={<Notifications />} />
         <Route path='/settings' element={<Settings />} />
         {/* <Route path='/profile/:username' element={<Profile />} /> */}

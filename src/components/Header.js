@@ -4,6 +4,11 @@ import { deleteCookie } from '../helpers/cookies'
 import { getLocalStorage } from '../helpers/localStorage'
 
 const Header = () => {
+  const requestStyle = {
+    whiteSpace: 'normal',
+    verticalAlign: 'bottom',
+  }
+
   const userauth = localStorage.getItem('user')
   const disconnect = () => {
     localStorage.removeItem('user')
@@ -38,9 +43,9 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <a href='#'>
+                          <Link to='#'>
                             <i className='fa fa-clone'></i>Pages
-                          </a>
+                          </Link>
                           <ul className='dropdown'>
                             <li>
                               <Link to='/teacher'>Teachers</Link>
@@ -57,11 +62,104 @@ const Header = () => {
                             <i className='fa fa-bell'></i>Notifications
                           </Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link to='courses.html'>
                             <i className='fa fa-clone'></i>Our Courses
                           </Link>
-                        </li>
+                        </li> */}
+                        {/* <li className='nav-item dropdown'>
+                          <Link
+                            className='nav-link dropdown-toggle mr-lg-2'
+                            id='contactsDropdown'
+                            to='#'
+                            data-toggle='dropdown'
+                            aria-haspopup='true'
+                            aria-expanded='false'
+                          >
+                            <i className='fa fa-fw fa-bell'></i>
+                            <span className='d-lg-none'>
+                              Contacts
+                              <span className='badge badge-pill badge-warning'>
+                                6 new
+                              </span>
+                            </span>
+                            <span className='indicator text-warning d-none d-lg-block'>
+                              <i className='fa fa-fw fa-circle'></i>
+                            </span>
+                          </Link>
+                          <div
+                            className='dropdown-menu dropdown-menu-right'
+                            style={{ minWidth: '300px' }}
+                            aria-labelledby='contactsDropdown'
+                          >
+                            <h6 className='dropdown-header'>Contacts:</h6>
+                            <div className='dropdown-divider'></div>
+                            <Link
+                              style={requestStyle}
+                              className='dropdown-item'
+                              to='#'
+                            >
+                              <img
+                                src='https://orig00.deviantart.net/d7b0/f/2011/166/d/4/avatar_100x100_by_demonfox_zephz-d3iyw6a.png'
+                                className='rounded-circle'
+                                style={{ width: '50px', height: '50px' }}
+                              />
+                              <div
+                                className='text-left user-item'
+                                style={{
+                                  display: 'inline-block',
+                                  marginLeft: '10px',
+                                  width: '100px',
+                                  requestStyle,
+                                }}
+                              >
+                                FirstName LastName
+                              </div>
+                              <span className='text-right'>
+                                <input
+                                  type='button'
+                                  className='btn btn-primary btn-sm'
+                                  value='Accept'
+                                />
+                                <input
+                                  type='button'
+                                  className='btn btn-default btn-sm'
+                                  value='Reject'
+                                />
+                              </span>
+                            </Link>
+                            <div className='dropdown-divider'></div>
+                            <Link className='dropdown-item' to='#'>
+                              <img
+                                src='https://orig00.deviantart.net/d7b0/f/2011/166/d/4/avatar_100x100_by_demonfox_zephz-d3iyw6a.png'
+                                className='rounded-circle'
+                                style={{ width: '50px', height: '50px' }}
+                              />
+                              <div
+                                className='text-left user-item'
+                                style={{
+                                  display: 'inline-block',
+                                  marginLeft: '10px',
+                                  width: '100px',
+                                }}
+                              >
+                                FirstName LastName
+                              </div>
+                              <div style={{ display: 'inline-block' }}>
+                                <input
+                                  type='button'
+                                  className='btn btn-primary btn-sm'
+                                  value='Accept'
+                                />
+                                <input
+                                  type='button'
+                                  className='btn btn-default btn-sm'
+                                  value='Reject'
+                                />
+                              </div>
+                            </Link>
+                          </div>
+                        </li> */}
                         <li>
                           <Link to='/events'>
                             <i className='fa fa-bullhorn'></i>Events
@@ -92,9 +190,9 @@ const Header = () => {
                   </nav>
                   {/* <!-- Search Area --> */}
                   <div className='search-area'>
-                    <a href='#header' className='icon'>
+                    <Link to='#header' className='icon'>
                       <i className='fa fa-search'></i>
-                    </a>
+                    </Link>
                     <form className='search-form'>
                       <input
                         type='text'

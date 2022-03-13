@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals'
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    {/* <StudentList /> */}
-    {/* <UseEffectBasics /> */}
   </React.StrictMode>,
   document.getElementById('root')
 )
