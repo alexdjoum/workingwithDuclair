@@ -7,7 +7,9 @@ export const createPost = async (formData, userID, token) => {
     },
   }
 
-  console.log('token ======> ', token)
+  console.log('token lio======> ', token)
+  console.log(userID)
   //console.log('post ======> ', post)
-  await axios.post(`http://localhost:5000/post/${userID}`, formData)
+  const res = await axios.post(`http://localhost:5000/post/${userID}`, formData)
+  console.log('res------------>', res.data)
 }

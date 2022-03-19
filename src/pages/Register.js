@@ -44,7 +44,6 @@ export default function Register() {
         password: password,
       }
       console.log('user =====>.>>>>', user)
-      register(user)
       const res = await register(user)
       console.log('res ======= ', res)
 

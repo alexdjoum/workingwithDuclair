@@ -49,8 +49,8 @@ function Profile() {
         formData.append('desc', desc)
         formData.append('image', selectedFile)
         console.log('enter ============>>>>>>', ...formData)
-        const res = await createPost(formData, userID, token)
-        console.log('res ============>>>>>>', res.data)
+        await createPost(formData, userID, token)
+
         // toast.success(`${desc} ${selectedFile} posted successfull`)
         // setDesc('')
         // setSelectedFile(null)
