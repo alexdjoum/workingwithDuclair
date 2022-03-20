@@ -17,6 +17,7 @@ import Forum from './pages/Forum'
 import { ToastContainer } from 'react-toastify'
 import UserRoute from './UserRoute'
 import Notifications from './pages/Notifications'
+import Comment from './components/Comment'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <ToastContainer position='top-center' />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/comment' element={<Comment />} />
         <Route
           path='/profile'
           element={
